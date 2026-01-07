@@ -5,15 +5,59 @@ export interface DashboardMetric {
     value: string | number;
     trend: string;
     trendUp: boolean;
-    category: 'performance' | 'volume' | 'finance' | 'status';
+    category: 'shipment' | 'revenue' | 'operational' | 'status';
 }
 
-// Mock Data representing what we would get from a simple Google Sheet API or n8n webhook
+// Mock Data - Logistics Operations Metrics
 const mockGoogleSheetData: DashboardMetric[] = [
-    { id: '1', label: 'Total Volume', value: '$187,001', trend: '+15.3%', trendUp: true, category: 'finance' },
-    { id: '2', label: 'Active Trucks', value: '21,345', trend: '-2.1%', trendUp: false, category: 'volume' },
-    { id: '3', label: 'Fuel Cost', value: '$7,321', trend: '+4.5%', trendUp: false, category: 'finance' }, /* Trend up is bad for cost, but purely visual here */
-    { id: '4', label: 'Est. Revenue', value: '$81,987', trend: '+12%', trendUp: true, category: 'finance' },
+    {
+        id: '1',
+        label: 'Total Pengiriman',
+        value: '2,847',
+        trend: '+12.5%',
+        trendUp: true,
+        category: 'shipment'
+    },
+    {
+        id: '2',
+        label: 'Pengiriman Hari Ini',
+        value: '156',
+        trend: '+8.3%',
+        trendUp: true,
+        category: 'shipment'
+    },
+    {
+        id: '3',
+        label: 'Pengiriman Bermasalah',
+        value: '12',
+        trend: '-15.2%',
+        trendUp: true,  // Negative trend is good for problems
+        category: 'status'
+    },
+    {
+        id: '4',
+        label: 'Pendapatan Hari Ini',
+        value: 'Rp 45.2M',
+        trend: '+18.7%',
+        trendUp: true,
+        category: 'revenue'
+    },
+    {
+        id: '5',
+        label: 'Armada Aktif',
+        value: '89',
+        trend: '+5.6%',
+        trendUp: true,
+        category: 'operational'
+    },
+    {
+        id: '6',
+        label: 'Rata-rata Waktu Kirim',
+        value: '2.3 Hari',
+        trend: '-8.1%',
+        trendUp: true,  // Lower delivery time is better
+        category: 'operational'
+    },
 ];
 
 export const fetchDashboardData = async (): Promise<DashboardMetric[]> => {
@@ -21,6 +65,6 @@ export const fetchDashboardData = async (): Promise<DashboardMetric[]> => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(mockGoogleSheetData);
-        }, 1200);
+        }, 800);
     });
 };

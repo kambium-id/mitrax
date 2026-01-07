@@ -32,28 +32,41 @@ export const options = {
         legend: {
             position: 'top' as const,
             labels: {
-                color: '#94a3b8',
+                color: '#A78BFA',
+                font: {
+                    size: 12,
+                    weight: 600 as const,
+                },
+                padding: 20,
+                usePointStyle: true,
+                pointStyle: 'circle',
             },
         },
         title: {
             display: false,
         },
         tooltip: {
-            backgroundColor: '#1e293b',
-            titleColor: '#f8fafc',
-            bodyColor: '#cbd5e1',
-            borderColor: '#334155',
+            backgroundColor: 'rgba(26, 26, 46, 0.95)',
+            titleColor: '#ffffff',
+            bodyColor: '#A78BFA',
+            borderColor: '#8B5CF6',
             borderWidth: 1,
+            padding: 12,
+            displayColors: true,
+            boxPadding: 6,
         }
     },
     scales: {
         y: {
             grid: {
-                color: '#334155',
+                color: '#2A2A3E',
                 drawBorder: false,
             },
             ticks: {
-                color: '#94a3b8',
+                color: '#6B7280',
+                font: {
+                    size: 11,
+                }
             }
         },
         x: {
@@ -61,40 +74,96 @@ export const options = {
                 display: false,
             },
             ticks: {
-                color: '#94a3b8',
+                color: '#6B7280',
+                font: {
+                    size: 11,
+                }
             }
         }
-    }
+    },
+    interaction: {
+        intersect: false,
+        mode: 'index' as const,
+    },
 };
 
-const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+// Data untuk 7 hari terakhir
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'];
 
 export const data = {
     labels,
     datasets: [
         {
             fill: true,
-            label: 'Delivered',
-            data: [65, 59, 80, 81, 56, 55, 90],
-            borderColor: '#38bdf8', /* Sky 400 */
-            backgroundColor: 'rgba(56, 189, 248, 0.2)',
+            label: 'Jumlah Pengiriman',
+            data: [320, 280, 450, 380, 520, 480, 580, 520, 490, 560],
+            borderColor: '#8B5CF6',
+            backgroundColor: 'rgba(139, 92, 246, 0.1)',
             tension: 0.4,
+            borderWidth: 3,
+            pointRadius: 0,
+            pointHoverRadius: 6,
+            pointBackgroundColor: '#8B5CF6',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 2,
         },
         {
             fill: true,
-            label: 'In Transit',
-            data: [28, 48, 40, 19, 46, 27, 40],
-            borderColor: '#818cf8', /* Indigo 400 */
-            backgroundColor: 'rgba(129, 140, 248, 0.2)',
+            label: 'Pendapatan (Juta Rp)',
+            data: [42, 38, 55, 48, 62, 58, 68, 62, 59, 65],
+            borderColor: '#10B981',
+            backgroundColor: 'rgba(16, 185, 129, 0.1)',
             tension: 0.4,
+            borderWidth: 3,
+            pointRadius: 0,
+            pointHoverRadius: 6,
+            pointBackgroundColor: '#10B981',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 2,
+        },
+        {
+            fill: true,
+            label: 'Pengiriman Bermasalah',
+            data: [25, 32, 28, 22, 18, 15, 12, 14, 10, 12],
+            borderColor: '#EF4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            tension: 0.4,
+            borderWidth: 3,
+            pointRadius: 0,
+            pointHoverRadius: 6,
+            pointBackgroundColor: '#EF4444',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 2,
         },
     ],
 };
 
 const ShipmentChart = () => {
     return (
-        <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg h-96">
-            <h3 className="text-slate-400 text-sm font-medium uppercase tracking-wider mb-6">Weekly Shipment Trends</h3>
+        <div className="dashboard-card relative overflow-hidden">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-6">
+                <div>
+                    <h3 className="text-white text-lg font-bold mb-1">Fluktuasi Harian</h3>
+                    <p className="text-gray-400 text-xs font-medium">Data 10 Bulan Terakhir</p>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-gray-400">
+                    <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+                        <span>Pengiriman</span>
+                    </div>
+                    <div className="flex items-center gap-1 ml-3">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                        <span>Pendapatan</span>
+                    </div>
+                    <div className="flex items-center gap-1 ml-3">
+                        <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                        <span>Bermasalah</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Chart */}
             <div className="h-80">
                 <Line options={options} data={data} />
             </div>

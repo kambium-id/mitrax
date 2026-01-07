@@ -14,24 +14,29 @@ export default function Home() {
 
   const getIcon = (category: string) => {
     switch (category) {
-      case 'finance': return <DollarSign size={20} />;
-      case 'volume': return <Package size={20} />;
-      case 'status': return <Truck size={20} />;
-      default: return <Wallet size={20} />;
+      case 'revenue': return <DollarSign size={24} />;
+      case 'shipment': return <Package size={24} />;
+      case 'status': return <Truck size={24} />;
+      case 'operational': return <Wallet size={24} />;
+      default: return <Package size={24} />;
     }
   };
 
   const getColor = (category: string) => {
     switch (category) {
-      case 'finance': return '#10B981'; // Emerald
-      case 'volume': return '#A855F7';  // Purple
-      case 'status': return '#3B82F6';  // Blue
-      default: return '#F59E0B';        // Amber
+      case 'revenue': return '#10B981';    // Emerald Green
+      case 'shipment': return '#8B5CF6';   // Purple
+      case 'status': return '#EF4444';     // Red
+      case 'operational': return '#F59E0B'; // Amber
+      default: return '#8B5CF6';
     }
   };
 
   return (
-    <div className="flex min-h-screen bg-[#121212] font-sans overflow-hidden selection:bg-indigo-500/30">
+    <div className="flex min-h-screen bg-[#0F0F1E] font-sans overflow-hidden selection:bg-purple-500/30 relative">
+      {/* Ambient background gradients */}
+      <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-pink-600/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Left Sidebar (Fixed) */}
       <Sidebar />
@@ -40,30 +45,32 @@ export default function Home() {
       <main className="flex-1 ml-24 mr-0 lg:mr-80 p-8 h-screen overflow-y-auto relative z-10 scrollbar-hide">
 
         {/* Header Section */}
-        <header className="flex justify-between items-start mb-10 mt-2">
+        <header className="flex justify-between items-start mb-8 mt-2">
           <div>
-            <h2 className="text-3xl font-bold text-white tracking-tight">Dashboard</h2>
-            <p className="text-gray-500 text-sm mt-1">Your Personal Logistics Center</p>
+            <h2 className="text-4xl font-bold text-white tracking-tight">Dashboard</h2>
+            <p className="text-gray-400 text-sm mt-2 font-medium">Your Personal Logistics Center</p>
           </div>
 
-          <div className="bg-[#1F1F1F] px-4 py-3 rounded-2xl flex items-center gap-3 w-80 border border-[#2A2A2A] focus-within:border-indigo-500/50 transition-colors shadow-sm">
-            <span className="text-gray-500">
+          <div className="glass-card px-5 py-3 rounded-2xl flex items-center gap-3 w-80 focus-within:ring-2 focus-within:ring-purple-500/50 transition-all shadow-lg">
+            <span className="text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
             </span>
             <input
               type="text"
-              placeholder="Search..."
-              className="bg-transparent border-none outline-none text-white text-sm w-full placeholder:text-gray-600 font-medium"
+              placeholder="Search shipments..."
+              className="bg-transparent border-none outline-none text-white text-sm w-full placeholder:text-gray-500 font-medium"
             />
           </div>
         </header>
 
-        {/* Dynamic Summary Cards - Forced Row on Desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {/* Dynamic Summary Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {loading ? (
             // Skeleton Loader
-            [1, 2, 3, 4].map(i => (
-              <div key={i} className="bg-[#1F1F1F] rounded-3xl p-6 h-[160px] animate-pulse"></div>
+            [1, 2, 3, 4, 5, 6].map(i => (
+              <div key={i} className="bg-[#1A1A2E] rounded-3xl p-6 h-[200px] border border-[#2A2A3E] animate-pulse relative overflow-hidden">
+                <div className="absolute inset-0 shimmer" />
+              </div>
             ))
           ) : (
             metrics.map((metric) => (
@@ -87,10 +94,7 @@ export default function Home() {
 
         {/* Analytics Section (Below Chat) */}
         <div className="mb-10">
-          <h3 className="text-white font-bold text-lg mb-4">Analytics Overview</h3>
-          <div className="h-80 w-full">
-            <ShipmentChart />
-          </div>
+          <ShipmentChart />
         </div>
 
       </main>
