@@ -2,7 +2,7 @@
 
 ## Overview
 
-Mitrax Dashboard menggunakan design system modern dengan purple gradient theme, glassmorphism effects, dan premium animations untuk menciptakan user experience yang menarik dan profesional.
+Mitrax Dashboard menggunakan design system modern dengan green/teal gradient theme, glassmorphism effects, dan premium animations untuk menciptakan user experience yang menarik dan profesional.
 
 ## 🎨 Color Palette
 
@@ -10,10 +10,10 @@ Mitrax Dashboard menggunakan design system modern dengan purple gradient theme, 
 
 | Color | Hex | Usage | Example |
 |-------|-----|-------|---------|
-| **Purple Primary** | `#8B5CF6` | Primary actions, Shipment metrics | Buttons, Links, Pengiriman |
-| **Purple Dark** | `#7C3AED` | Sidebar gradient start | Navigation sidebar |
-| **Purple Deep** | `#5B21B6` | Sidebar gradient end | Sidebar bottom |
-| **Purple Light** | `#A78BFA` | Hover states, accents | Hover effects |
+| **Teal Primary** | `#14B8A6` | Primary actions, Shipment metrics | Buttons, Links, Pengiriman |
+| **Teal Dark** | `#0D9488` | Sidebar gradient start | Navigation sidebar |
+| **Teal Deep** | `#0F766E` | Sidebar gradient end | Sidebar bottom |
+| **Teal Light** | `#2DD4BF` | Hover states, accents | Hover effects |
 
 ### Status Colors
 
@@ -22,16 +22,16 @@ Mitrax Dashboard menggunakan design system modern dengan purple gradient theme, 
 | **Emerald** | `#10B981` | Success, Revenue, Positive trends |
 | **Red** | `#EF4444` | Errors, Problems, Warnings |
 | **Amber** | `#F59E0B` | Information, Operational data |
-| **Pink** | `#EC4899` | Secondary accents, Gradients |
+| **Cyan** | `#06B6D4` | Secondary accents, Gradients |
 | **Blue** | `#3B82F6` | Info states (alternate) |
 
 ### Neutral Colors
 
 | Color | Hex | Usage |
 |-------|-----|-------|
-| **Background** | `#0F0F1E` | Main background |
-| **Card Background** | `#1A1A2E` | Card containers |
-| **Border** | `#2A2A3E` | Card borders |
+| **Background** | `#0A1F1F` | Main background |
+| **Card Background** | `#0F2A2A` | Card containers |
+| **Border** | `#1A3A3A` | Card borders |
 | **Text Primary** | `#FFFFFF` | Headings, important text |
 | **Text Secondary** | `#9CA3AF` | Descriptions, metadata |
 | **Text Muted** | `#6B7280` | Less important text |
@@ -71,15 +71,15 @@ Tiny: 0.625rem (10px) - Medium - Inter
 ### 1. Summary Cards
 
 **Design Specs:**
-- Background: `#1A1A2E` with glassmorphism
-- Border: `1px solid #2A2A3E`
+- Background: `#0F2A2A` with glassmorphism
+- Border: `1px solid #1A3A3A`
 - Border Radius: `2rem` (32px)
 - Padding: `1.5rem` (24px)
 - Shadow: Dynamic color-based shadow
 
 **States:**
 - **Default**: Subtle border
-- **Hover**: Scale 1.02, border glow, purple shadow
+- **Hover**: Scale 1.02, border glow, teal shadow
 - **Loading**: Shimmer animation
 
 **Elements:**
@@ -91,33 +91,33 @@ Tiny: 0.625rem (10px) - Medium - Inter
 ### 2. Chat Interface
 
 **Container:**
-- Background: Glassmorphism `rgba(26, 26, 46, 0.7)`
+- Background: Glassmorphism `rgba(15, 42, 42, 0.7)`
 - Backdrop filter: `blur(20px)`
-- Border: `1px solid rgba(139, 92, 246, 0.2)`
+- Border: `1px solid rgba(20, 184, 166, 0.2)`
 - Border radius: `1.5rem` (24px)
-- Top accent: Gradient line purple to pink
+- Top accent: Gradient line teal to cyan
 
 **Message Bubbles:**
 
 **User Message:**
-- Background: Gradient purple to pink
+- Background: Gradient teal to cyan
 - Text: White
 - Border radius: `1rem` with bottom-right small radius
-- Shadow: Purple glow
+- Shadow: Teal glow
 
 **Bot Message:**
-- Background: Glassmorphism `rgba(26, 26, 46, 0.8)`
+- Background: Glassmorphism `rgba(15, 42, 42, 0.8)`
 - Text: Light gray `#E5E7EB`
-- Border: `1px solid rgba(139, 92, 246, 0.2)`
+- Border: `1px solid rgba(20, 184, 166, 0.2)`
 - Border radius: `1rem` with bottom-left small radius
 
 ### 3. Sidebar
 
 **Design:**
-- Background: Linear gradient `#7C3AED` to `#5B21B6`
+- Background: Linear gradient `#0D9488` to `#0F766E`
 - Width: `6rem` (96px)
 - Position: Fixed left
-- Shadow: `2xl` with purple glow
+- Shadow: `2xl` with teal glow
 
 **Navigation Items:**
 - Size: `3rem` x `3rem` (48px)
@@ -135,8 +135,8 @@ Tiny: 0.625rem (10px) - Medium - Inter
 ### 4. Analytics Chart
 
 **Container:**
-- Background: `#1A1A2E`
-- Border: `1px solid #2A2A3E`
+- Background: `#0F2A2A`
+- Border: `1px solid #1A3A3A`
 - Border radius: `1.5rem` (24px)
 - Padding: `1.5rem` (24px)
 
@@ -148,9 +148,9 @@ Tiny: 0.625rem (10px) - Medium - Inter
 - Fill: Gradient with 10% opacity
 
 **Colors:**
-- Shipments: Purple `#8B5CF6`
+- Shipments: Teal `#14B8A6`
 - Revenue: Emerald `#10B981`
-- Problems: Red `#EF4444`
+- Problems: Amber `#F59E0B`
 
 ### 5. Chat History Panel
 
@@ -162,7 +162,7 @@ Tiny: 0.625rem (10px) - Medium - Inter
 
 **History Items:**
 - Background: `white/5`
-- Hover: `white/10` with purple border
+- Hover: `white/10` with teal border
 - Border radius: `0.75rem` (12px)
 - Padding: `0.75rem` (12px)
 - Transition: All 300ms
@@ -173,10 +173,10 @@ Tiny: 0.625rem (10px) - Medium - Inter
 
 ```css
 .glass-card {
-  background: rgba(26, 26, 46, 0.7);
+  background: rgba(15, 42, 42, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(20, 184, 166, 0.2);
 }
 ```
 
@@ -195,7 +195,7 @@ Tiny: 0.625rem (10px) - Medium - Inter
 **Glow Effect:**
 ```css
 .hover-glow:hover {
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
 }
 ```
 
@@ -235,10 +235,10 @@ Tiny: 0.625rem (10px) - Medium - Inter
 ```css
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+    box-shadow: 0 0 30px rgba(20, 184, 166, 0.6);
   }
 }
 ```
@@ -274,7 +274,7 @@ Based on Tailwind's spacing scale:
 ```css
 .focus-ring {
   outline: none;
-  ring: 2px solid rgba(139, 92, 246, 0.5);
+  ring: 2px solid rgba(20, 184, 166, 0.5);
   ring-offset: 2px;
 }
 ```
@@ -319,23 +319,23 @@ Based on Tailwind's spacing scale:
 ### Sidebar Gradient
 
 ```css
-background: linear-gradient(180deg, #7C3AED 0%, #5B21B6 100%);
+background: linear-gradient(180deg, #0D9488 0%, #0F766E 100%);
 ```
 
 ### Button Gradient
 
 ```css
-background: linear-gradient(135deg, #8B5CF6, #EC4899);
+background: linear-gradient(135deg, #14B8A6, #06B6D4);
 ```
 
 ### Ambient Backgrounds
 
 ```css
 /* Top Right */
-background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
 
 /* Bottom Left */
-background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
 ```
 
 ## 🎨 Usage Guidelines
@@ -347,7 +347,7 @@ background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%)
 - Maintain consistent spacing
 - Use color-coded categories
 - Add hover feedback on interactive elements
-- Use purple as primary brand color
+- Use teal as primary brand color
 
 ### Don'ts ❌
 
@@ -360,5 +360,5 @@ background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%)
 
 ---
 
-**Design System Version: 2.0.0**  
-**Last Updated: 2026-01-07**
+**Design System Version: 2.1.0**  
+**Last Updated: 2026-01-08**

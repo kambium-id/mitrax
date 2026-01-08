@@ -9,7 +9,7 @@ Dashboard manajemen operasional logistik dengan AI Assistant terintegrasi.
 - **📊 Real-time Metrics**: Monitor total pengiriman, pengiriman bermasalah, pendapatan, dan armada aktif
 - **📈 Analytics Dashboard**: Visualisasi fluktuasi harian pengiriman dan pendapatan
 - **🤖 AI Assistant**: Chat interface untuk query data dan analisis cepat
-- **💎 Premium UI**: Modern design dengan purple gradient theme dan glassmorphism effects
+- **💎 Premium UI**: Modern design dengan green/teal gradient theme dan glassmorphism effects
 - **📱 Responsive Design**: Optimized untuk desktop dan mobile
 
 ## 🛠️ Tech Stack
