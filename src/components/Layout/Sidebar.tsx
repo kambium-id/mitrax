@@ -12,7 +12,7 @@ import {
 
 const Sidebar = () => {
     return (
-        <aside className="fixed left-0 top-0 h-screen w-24 bg-gradient-to-b from-[#7C3AED] to-[#5B21B6] flex flex-col items-center py-8 z-50 shadow-2xl shadow-purple-900/50">
+        <aside className="fixed left-0 top-0 h-screen w-24 bg-gradient-to-b from-[#0D9488] to-[#0F766E] flex flex-col items-center py-8 z-50 shadow-2xl shadow-teal-900/50">
             {/* Logo */}
             <div className="mb-10 relative group">
                 <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center shadow-lg shadow-black/20 border border-white/30 group-hover:scale-110 transition-transform duration-300 animate-float">

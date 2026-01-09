@@ -59,7 +59,7 @@ export const options = {
     scales: {
         y: {
             grid: {
-                color: '#2A2A3E',
+                color: '#1A3A3A',
                 drawBorder: false,
             },
             ticks: {
@@ -97,13 +97,19 @@ export const data = {
             fill: true,
             label: 'Jumlah Pengiriman',
             data: [320, 280, 450, 380, 520, 480, 580, 520, 490, 560],
-            borderColor: '#8B5CF6',
-            backgroundColor: 'rgba(139, 92, 246, 0.1)',
+            borderColor: '#14B8A6',
+            backgroundColor: (context: any) => {
+                const ctx = context.chart.ctx;
+                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+                gradient.addColorStop(0, 'rgba(20, 184, 166, 0.2)');
+                gradient.addColorStop(1, 'rgba(20, 184, 166, 0)');
+                return gradient;
+            },
             tension: 0.4,
             borderWidth: 3,
             pointRadius: 0,
             pointHoverRadius: 6,
-            pointBackgroundColor: '#8B5CF6',
+            pointBackgroundColor: '#14B8A6',
             pointBorderColor: '#ffffff',
             pointBorderWidth: 2,
         },
@@ -124,14 +130,14 @@ export const data = {
         {
             fill: true,
             label: 'Pengiriman Bermasalah',
-            data: [25, 32, 28, 22, 18, 15, 12, 14, 10, 12],
-            borderColor: '#EF4444',
-            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            data: [18, 15, 22, 20, 25, 19, 28, 24, 21, 26],
+            borderColor: '#F59E0B',
+            backgroundColor: 'rgba(245, 158, 11, 0.1)',
             tension: 0.4,
             borderWidth: 3,
             pointRadius: 0,
             pointHoverRadius: 6,
-            pointBackgroundColor: '#EF4444',
+            pointBackgroundColor: '#F59E0B',
             pointBorderColor: '#ffffff',
             pointBorderWidth: 2,
         },
@@ -149,15 +155,15 @@ const ShipmentChart = () => {
                 </div>
                 <div className="flex items-center gap-2 text-xs text-gray-400">
                     <div className="flex items-center gap-1">
-                        <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-teal-500"></div>
                         <span>Pengiriman</span>
                     </div>
                     <div className="flex items-center gap-1 ml-3">
                         <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
                         <span>Pendapatan</span>
                     </div>
-                    <div className="flex items-center gap-1 ml-3">
-                        <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                    <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 rounded-full bg-amber-500"></div>
                         <span>Bermasalah</span>
                     </div>
                 </div>

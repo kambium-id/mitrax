@@ -16,7 +16,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
     trend,
     trendUp = true,
     icon,
-    color = "#8B5CF6"
+    color = "#14B8A6"  // Teal default
 }) => {
     return (
         <div className="dashboard-card relative overflow-hidden group">
@@ -63,8 +63,8 @@ const SummaryCard: React.FC<SummaryCardProps> = ({
                 {trend && (
                     <div className="flex items-center gap-2 mt-2">
                         <div className={`flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold ${trendUp
-                                ? 'bg-emerald-500/10 text-emerald-400'
-                                : 'bg-red-500/10 text-red-400'
+                            ? 'bg-emerald-500/10 text-emerald-400'
+                            : 'bg-red-500/10 text-red-400'
                             }`}>
                             {trendUp ? (
                                 <TrendingUp size={12} />

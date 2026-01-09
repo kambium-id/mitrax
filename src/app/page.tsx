@@ -25,18 +25,18 @@ export default function Home() {
   const getColor = (category: string) => {
     switch (category) {
       case 'revenue': return '#10B981';    // Emerald Green
-      case 'shipment': return '#8B5CF6';   // Purple
+      case 'shipment': return '#14B8A6';   // Teal
       case 'status': return '#EF4444';     // Red
       case 'operational': return '#F59E0B'; // Amber
-      default: return '#8B5CF6';
+      default: return '#14B8A6';
     }
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0F0F1E] font-sans overflow-hidden selection:bg-purple-500/30 relative">
+    <div className="flex min-h-screen bg-[#0A1F1F] font-sans overflow-hidden selection:bg-teal-500/30 relative">
       {/* Ambient background gradients */}
-      <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-pink-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed top-0 right-0 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Left Sidebar (Fixed) */}
       <Sidebar />
@@ -51,7 +51,7 @@ export default function Home() {
             <p className="text-gray-400 text-sm mt-2 font-medium">Your Personal Logistics Center</p>
           </div>
 
-          <div className="glass-card px-5 py-3 rounded-2xl flex items-center gap-3 w-80 focus-within:ring-2 focus-within:ring-purple-500/50 transition-all shadow-lg">
+          <div className="glass-card px-5 py-3 rounded-2xl flex items-center gap-3 w-80 focus-within:ring-2 focus-within:ring-teal-500/50 transition-all shadow-lg">
             <span className="text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
             </span>
@@ -68,7 +68,7 @@ export default function Home() {
           {loading ? (
             // Skeleton Loader
             [1, 2, 3, 4, 5, 6].map(i => (
-              <div key={i} className="bg-[#1A1A2E] rounded-3xl p-6 h-[200px] border border-[#2A2A3E] animate-pulse relative overflow-hidden">
+              <div key={i} className="bg-[#0F2A2A] rounded-3xl p-6 h-[200px] border border-[#1A3A3A] animate-pulse relative overflow-hidden">
                 <div className="absolute inset-0 shimmer" />
               </div>
             ))

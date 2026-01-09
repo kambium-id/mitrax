@@ -94,17 +94,17 @@ const ChatInterface = () => {
     };
 
     return (
-        <div className="flex flex-col h-[600px] w-full glass-card rounded-3xl shadow-2xl overflow-hidden relative group border border-purple-500/20">
+        <div className="flex flex-col h-[600px] w-full glass-card rounded-3xl shadow-2xl overflow-hidden relative group border border-teal-500/20">
             {/* Decorative gradient top border */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 animate-pulse" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-500 animate-pulse" />
 
             {/* Ambient glow effects */}
-            <div className="absolute -top-20 -right-20 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-500/20 transition-all duration-700" />
-            <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-pink-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-pink-500/20 transition-all duration-700" />
+            <div className="absolute -top-20 -right-20 w-60 h-60 bg-teal-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-teal-500/20 transition-all duration-700" />
+            <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-700" />
 
             {/* Header */}
             <div className="p-6 border-b border-white/10 flex flex-col justify-center items-center relative z-10 bg-gradient-to-b from-purple-500/5 to-transparent">
-                <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl shadow-lg mb-3 shadow-purple-500/30 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                <div className="p-4 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl shadow-lg mb-3 shadow-teal-500/30 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
                     <Bot size={32} className="text-white relative z-10" />
                     {/* Icon shimmer */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
@@ -125,21 +125,21 @@ const ChatInterface = () => {
                     <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} animate-slide-up`}>
                         {msg.sender === 'bot' && (
                             <div className="mr-3 flex-shrink-0 mt-1">
-                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center border-2 border-purple-400/30 shadow-lg shadow-purple-500/20">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center border-2 border-teal-400/30 shadow-lg shadow-teal-500/20">
                                     <Bot size={16} className="text-white" />
                                 </div>
                             </div>
                         )}
                         <div className={`max-w-[85%] rounded-2xl p-4 shadow-lg relative overflow-hidden ${msg.sender === 'user'
-                            ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-br-sm shadow-purple-500/20'
-                            : 'glass-card text-gray-200 border border-purple-500/20 rounded-bl-sm'
+                            ? 'bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-br-sm shadow-teal-500/20'
+                            : 'glass-card text-gray-200 border border-teal-500/20 rounded-bl-sm'
                             }`}>
                             <p className="text-sm leading-relaxed whitespace-pre-wrap relative z-10">{msg.text}</p>
                             <p className={`text-[10px] mt-2 opacity-70 relative z-10 ${msg.sender === 'user' ? 'text-purple-100' : 'text-gray-400'}`}>
                                 {msg.timestamp.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })}
                             </p>
                             {msg.sender === 'bot' && (
-                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-50" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-teal-500/0 via-teal-500/5 to-teal-500/0 opacity-50" />
                             )}
                         </div>
                     </div>
@@ -151,8 +151,8 @@ const ChatInterface = () => {
                                 <Bot size={16} className="text-white" />
                             </div>
                         </div>
-                        <div className="glass-card border border-purple-500/20 rounded-2xl p-4 rounded-bl-sm flex items-center gap-3">
-                            <Loader2 size={18} className="animate-spin text-purple-400" />
+                        <div className="glass-card border border-teal-500/20 rounded-2xl p-4 rounded-bl-sm flex items-center gap-3">
+                            <Loader2 size={18} className="animate-spin text-teal-400" />
                             <span className="text-sm text-gray-400 font-medium">Memproses permintaan Anda...</span>
                         </div>
                     </div>
@@ -163,7 +163,7 @@ const ChatInterface = () => {
             {/* Input Area */}
             <div className="p-6 bg-gradient-to-t from-purple-500/5 to-transparent border-t border-white/10 backdrop-blur-md relative z-10">
                 <div className="relative flex items-center gap-2">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-purple-400">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-teal-400">
                         <Sparkles size={18} />
                     </div>
                     <input
@@ -172,13 +172,13 @@ const ChatInterface = () => {
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={handleKeyPress}
                         placeholder="Tanyakan tentang analitik, pengiriman, atau status driver..."
-                        className="w-full glass-card border border-purple-500/30 rounded-xl pl-12 pr-14 py-4 text-sm text-white focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 transition-all placeholder:text-gray-500 shadow-lg"
+                        className="w-full glass-card border border-teal-500/30 rounded-xl pl-12 pr-14 py-4 text-sm text-white focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/30 transition-all placeholder:text-gray-500 shadow-lg"
                         disabled={isLoading}
                     />
                     <button
                         onClick={sendMessage}
                         disabled={isLoading || !input.trim()}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 p-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl text-white transition-all shadow-lg shadow-purple-500/30 active:scale-95"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 p-3 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed rounded-xl text-white transition-all shadow-lg shadow-teal-500/30 active:scale-95"
                     >
                         <Send size={18} />
                     </button>

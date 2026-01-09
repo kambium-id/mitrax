@@ -10,7 +10,7 @@ const ChatHistoryPanel = () => {
     ];
 
     return (
-        <aside className="hidden lg:flex flex-col w-80 h-screen glass-card border-l border-purple-500/20 p-6 fixed right-0 top-0 z-40 overflow-y-auto scrollbar-hide">
+        <aside className="fixed right-0 top-0 h-screen w-80 glass-card border-l border-teal-500/20 p-6 flex flex-col z-40 shadow-2xl hidden lg:flex overflow-y-auto scrollbar-hide">
 
             {/* User Profile Mini */}
             <div className="flex items-center justify-end gap-4 mb-8 pb-6 border-b border-white/10">
@@ -19,12 +19,12 @@ const ChatHistoryPanel = () => {
                     <p className="text-gray-400 text-xs mt-0.5">Logistics Manager</p>
                 </div>
                 <div className="relative group">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl overflow-hidden border-2 border-white/20 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-teal-500/30 relative overflow-hidden">
                         <div className="w-full h-full flex items-center justify-center text-white font-bold text-lg">
                             MA
                         </div>
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-[#1A1A2E] animate-pulse" />
+                    <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 rounded-full border-2 border-[#0F2A2A] shadow-lg"></span>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@ const ChatHistoryPanel = () => {
             <div className="mb-8">
                 <div className="flex items-center justify-between mb-6">
                     <h3 className="text-white font-bold text-base flex items-center gap-2">
-                        <Clock size={18} className="text-purple-400" />
+                        <Clock size={18} className="text-teal-400" />
                         Chat History
                     </h3>
                     <span className="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded-lg">
@@ -43,17 +43,17 @@ const ChatHistoryPanel = () => {
                     {chatHistory.map((item) => (
                         <div
                             key={item.id}
-                            className="group cursor-pointer p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-transparent hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden"
+                            className="glass-card p-4 rounded-xl border border-teal-500/10 hover:border-teal-500/30 hover:bg-white/5 transition-all cursor-pointer group relative overflow-hidden"
                         >
                             {/* Hover gradient effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-teal-500/0 via-teal-500/5 to-teal-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                             <div className="relative z-10 flex items-start gap-3">
-                                <div className="bg-purple-500/20 p-2 rounded-lg text-purple-400 group-hover:bg-purple-500/30 transition-colors mt-0.5">
+                                <div className="bg-teal-500/20 p-2 rounded-lg text-teal-400 group-hover:bg-teal-500/30 transition-colors mt-0.5">
                                     <MessageSquare size={14} />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className="text-white text-sm font-medium truncate group-hover:text-purple-300 transition-colors">
+                                    <p className="text-white text-sm font-medium truncate group-hover:text-teal-300 transition-colors">
                                         {item.query}
                                     </p>
                                     <p className="text-gray-500 text-xs mt-1 flex items-center gap-1">
@@ -93,11 +93,11 @@ const ChatHistoryPanel = () => {
                         </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 group">
+                    <div className="p-4 rounded-xl bg-gradient-to-br from-teal-500/10 to-teal-500/5 border border-teal-500/20 hover:border-teal-500/40 transition-all duration-300 group">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <div className="p-2 bg-purple-500/20 rounded-lg">
-                                    <MessageSquare size={16} className="text-purple-400" />
+                                <div className="p-2 bg-teal-500/20 rounded-lg">
+                                    <MessageSquare size={16} className="text-teal-400" />
                                 </div>
                                 <div>
                                     <p className="text-white text-sm font-semibold">Total Queries</p>
