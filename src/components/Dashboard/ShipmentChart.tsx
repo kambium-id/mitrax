@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { ChartData } from '@/services/dataService';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -87,71 +88,73 @@ export const options = {
     },
 };
 
-// Data untuk 7 hari terakhir
-const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'];
+interface ShipmentChartProps {
+    data?: ChartData | null;
+    loading?: boolean;
+}
 
-export const data = {
-    labels,
-    datasets: [
-        {
-            fill: true,
-            label: 'Jumlah Pengiriman',
-            data: [320, 280, 450, 380, 520, 480, 580, 520, 490, 560],
-            borderColor: '#14B8A6',
-            backgroundColor: (context: any) => {
-                const ctx = context.chart.ctx;
-                const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-                gradient.addColorStop(0, 'rgba(20, 184, 166, 0.2)');
-                gradient.addColorStop(1, 'rgba(20, 184, 166, 0)');
-                return gradient;
+const ShipmentChart: React.FC<ShipmentChartProps> = ({ data, loading }) => {
+    const chartData = {
+        labels: data?.labels || [],
+        datasets: [
+            {
+                fill: true,
+                label: 'Jumlah Pengiriman',
+                data: data?.datasets.shipments || [],
+                borderColor: '#14B8A6',
+                backgroundColor: (context: any) => {
+                    const ctx = context.chart.ctx;
+                    const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+                    gradient.addColorStop(0, 'rgba(20, 184, 166, 0.2)');
+                    gradient.addColorStop(1, 'rgba(20, 184, 166, 0)');
+                    return gradient;
+                },
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointBackgroundColor: '#14B8A6',
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
             },
-            tension: 0.4,
-            borderWidth: 3,
-            pointRadius: 0,
-            pointHoverRadius: 6,
-            pointBackgroundColor: '#14B8A6',
-            pointBorderColor: '#ffffff',
-            pointBorderWidth: 2,
-        },
-        {
-            fill: true,
-            label: 'Pendapatan (Juta Rp)',
-            data: [42, 38, 55, 48, 62, 58, 68, 62, 59, 65],
-            borderColor: '#10B981',
-            backgroundColor: 'rgba(16, 185, 129, 0.1)',
-            tension: 0.4,
-            borderWidth: 3,
-            pointRadius: 0,
-            pointHoverRadius: 6,
-            pointBackgroundColor: '#10B981',
-            pointBorderColor: '#ffffff',
-            pointBorderWidth: 2,
-        },
-        {
-            fill: true,
-            label: 'Pengiriman Bermasalah',
-            data: [18, 15, 22, 20, 25, 19, 28, 24, 21, 26],
-            borderColor: '#F59E0B',
-            backgroundColor: 'rgba(245, 158, 11, 0.1)',
-            tension: 0.4,
-            borderWidth: 3,
-            pointRadius: 0,
-            pointHoverRadius: 6,
-            pointBackgroundColor: '#F59E0B',
-            pointBorderColor: '#ffffff',
-            pointBorderWidth: 2,
-        },
-    ],
-};
+            {
+                fill: true,
+                label: 'Pendapatan (Juta Rp)',
+                data: data?.datasets.revenue || [],
+                borderColor: '#10B981',
+                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointBackgroundColor: '#10B981',
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
+            },
+            {
+                fill: true,
+                label: 'Pengiriman Bermasalah',
+                data: data?.datasets.abnormal || [],
+                borderColor: '#F59E0B',
+                backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointBackgroundColor: '#F59E0B',
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
+            },
+        ],
+    };
 
-const ShipmentChart = () => {
     return (
         <div className="dashboard-card relative overflow-hidden">
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
                 <div>
                     <h3 className="text-white text-lg font-bold mb-1">Fluktuasi Harian</h3>
-                    <p className="text-gray-400 text-xs font-medium">Data 10 Bulan Terakhir</p>
+                    <p className="text-gray-400 text-xs font-medium">Tren Data Terkini</p>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-gray-400">
                     <div className="flex items-center gap-1">
@@ -171,7 +174,13 @@ const ShipmentChart = () => {
 
             {/* Chart */}
             <div className="h-80">
-                <Line options={options} data={data} />
+                {loading ? (
+                    <div className="w-full h-full flex items-center justify-center">
+                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-500"></div>
+                    </div>
+                ) : (
+                    <Line options={options} data={chartData} />
+                )}
             </div>
         </div>
     );
